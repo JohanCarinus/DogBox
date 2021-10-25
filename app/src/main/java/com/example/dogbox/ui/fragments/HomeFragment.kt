@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.dogbox.databinding.HomeFragmentBinding
-import com.example.dogbox.ui.adapter.MasonryAdapter
+import com.example.dogbox.ui.adapter.MasonryImageGalleryAdapter
 import com.example.dogbox.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,7 +17,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: MasonryAdapter
+    private lateinit var adapter: MasonryImageGalleryAdapter
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
 
         val model: HomeViewModel by viewModels()
         model.getDogUrls().observe(viewLifecycleOwner, { uris ->
-            adapter = MasonryAdapter(uris)
+            adapter = MasonryImageGalleryAdapter(uris)
             binding.imageRecyclerView.adapter = adapter
         })
 

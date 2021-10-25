@@ -2,6 +2,4 @@
     <string name="app_name">Dog Box</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

@@ -5,6 +5,5 @@
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorOnPrimarySurface">@color/primaryTextColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
-
     </style>
 </resources>

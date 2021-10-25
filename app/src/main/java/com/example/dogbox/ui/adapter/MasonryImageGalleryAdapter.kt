@@ -9,8 +9,8 @@ import coil.load
 import com.example.dogbox.R
 import com.example.dogbox.databinding.ImageViewHolderBinding
 
-class MasonryAdapter(private val dataSet: List<Uri>) :
-    RecyclerView.Adapter<MasonryAdapter.ViewHolder>() {
+class MasonryImageGalleryAdapter(private val dataSet: List<Uri>) :
+    RecyclerView.Adapter<MasonryImageGalleryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.image_view_holder, parent, false)
