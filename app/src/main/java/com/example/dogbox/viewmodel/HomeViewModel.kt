@@ -1,6 +1,7 @@
 package com.example.dogbox.viewmodel
 
 import android.net.Uri
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.dogbox.model.ErrorData
@@ -20,8 +21,15 @@ class HomeViewModel @Inject constructor(
         MutableLiveData(ErrorData(ErrorSeverity.NO_ERROR, "No Error"))
 
     private val dogUrls: MutableLiveData<List<Uri>> by lazy {
-        MutableLiveData<List<Uri>>().also {
-            dogsRepository.getDogUrls()
-        }
+        MutableLiveData<List<Uri>>()
+    }
+
+    fun getDogUrls(): LiveData<List<Uri>> {
+        reload()
+        return dogUrls
+    }
+
+    fun reload() {
+        dogUrls.value = dogsRepository.getDogUrls()
     }
 }
