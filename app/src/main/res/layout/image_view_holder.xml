@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/image_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
