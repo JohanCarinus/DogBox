@@ -29,12 +29,12 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
 
-        binding.recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.imageRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         val model: HomeViewModel by viewModels()
         model.getDogUrls().observe(viewLifecycleOwner, { uris ->
             adapter = MasonryAdapter(uris)
-            binding.recyclerView.adapter = adapter
+            binding.imageRecyclerView.adapter = adapter
         })
 
         return binding.root

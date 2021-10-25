@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:layout_margin="8dp">
+        android:layout_margin="@dimen/gutter_space">
 
         <ImageView
             android:id="@+id/image"

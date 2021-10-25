@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home"
+    android:id="@+id/home_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/imageRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:padding="@dimen/gutter_space"
         tools:itemCount="3"
-        tools:listitem="@layout/image_view_holder" />
+        tools:listitem="@layout/image_view_holder"/>
 </ScrollView>
