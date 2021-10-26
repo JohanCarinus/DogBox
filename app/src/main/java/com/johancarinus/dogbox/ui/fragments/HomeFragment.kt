@@ -14,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import johancarinus.dogbox.R
 import johancarinus.dogbox.databinding.HomeFragmentBinding
 
-// TODO: Should the NavHostFragment only be on a single class
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
@@ -23,10 +22,6 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
 
     private lateinit var adapter: MasonryImageGalleryAdapter
-
-    companion object {
-        fun newInstance() = HomeFragment()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +48,8 @@ class HomeFragment : Fragment() {
         adapter = MasonryImageGalleryAdapter(
             MasonryImageGalleryOnClickListener { uri: Uri -> viewModel.openImage(uri) }
         )
-        binding.imageRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.imageRecyclerView.layoutManager =
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.imageRecyclerView.adapter = adapter
     }
 
