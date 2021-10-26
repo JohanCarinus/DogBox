@@ -5,4 +5,6 @@
     <string name="share_image">Share Image</string>
     <string name="image_saved">The image has been saved.</string>
     <string name="error_something_went_wrong">Something went wrong.</string>
+    <string name="save">Save</string>
+    <string name="share">Share</string>
 </resources>

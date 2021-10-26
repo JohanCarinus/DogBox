@@ -4,12 +4,12 @@
 
     <item
         android:id="@+id/save"
-        android:icon="@android:drawable/ic_menu_save"
-        android:title="Save"
+        android:icon="@drawable/ic_save_24"
+        android:title="@string/save"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/share"
-        android:icon="?attr/actionModeShareDrawable"
-        android:title="Share"
+        android:icon="@drawable/ic_share_24"
+        android:title="@string/share"
         app:showAsAction="ifRoom" />
 </menu>

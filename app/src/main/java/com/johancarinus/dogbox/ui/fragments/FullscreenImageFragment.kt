@@ -33,6 +33,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import androidx.core.net.toUri
+import androidx.navigation.fragment.findNavController
 import com.johancarinus.dogbox.DogBoxApplication_HiltComponents
 import com.johancarinus.dogbox.util.*
 
@@ -65,7 +66,10 @@ class FullscreenImageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.topAppBar.setNavigationIcon(R.drawable.ic_arrow_back_24)
+        binding.topAppBar.setNavigationOnClickListener {
+            activity?.onBackPressed()
+        }
         binding.topAppBar.setOnMenuItemClickListener {
             when(it.itemId) {
                 R.id.share -> {
