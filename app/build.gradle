@@ -4,13 +4,14 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId 'com.example.dogbox'
+        applicationId 'com.johancarinus.dogbox'
         minSdk 23
         targetSdk 31
         versionCode 1
@@ -48,9 +49,16 @@ android {
 
 dependencies {
 
+    def di_version = '2.38.1'
+    def coil_version = '1.4.0'
+
+    /* Jetpack Navigation */
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
     /* Dependency injection */
-    implementation 'com.google.dagger:hilt-android:2.38.1'
-    kapt 'com.google.dagger:hilt-compiler:2.38.1'
+    implementation "com.google.dagger:hilt-android:$di_version"
+    kapt "com.google.dagger:hilt-compiler:$di_version"
 
     /* Extension functions*/
     implementation 'androidx.core:core-ktx:1.6.0'
@@ -67,8 +75,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
     /* Image loading and caching */
-    implementation 'io.coil-kt:coil:1.4.0'
-    implementation 'io.coil-kt:coil-gif:1.4.0'
+    implementation "io.coil-kt:coil:$coil_version"
+    implementation "io.coil-kt:coil-gif:$coil_version"
 
     /* Testing */
     testImplementation 'junit:junit:4.+'
