@@ -18,6 +18,10 @@ import johancarinus.dogbox.databinding.HomeFragmentBinding
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
+    companion object {
+        const val NUM_COLUMNS = 2
+    }
+
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
@@ -46,10 +50,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupViews() {
+        val layoutManager = StaggeredGridLayoutManager(NUM_COLUMNS, StaggeredGridLayoutManager.VERTICAL)
         adapter = MasonryImageGalleryAdapter(
             MasonryImageGalleryOnClickListener { uri: Uri -> viewModel.openImage(uri) }
         )
-        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.imageRecyclerView.layoutManager = layoutManager
         binding.imageRecyclerView.adapter = adapter
         binding.imageRecyclerView.addOnScrollListener(object : InfiniteScrollListener(layoutManager) {
@@ -58,7 +62,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun isDataLoading(): Boolean {
-                return viewModel.isLoading().value ?: false
+                return viewModel.isLoadingInBackground().value ?: false
             }
         })
     }
@@ -79,7 +83,7 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(it)
             }
         })
-        viewModel.getDogUrls().observe(viewLifecycleOwner, { uriImages ->
+        viewModel.getDogUris().observe(viewLifecycleOwner, { uriImages ->
             adapter.submitList(uriImages)
         })
     }

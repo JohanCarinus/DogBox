@@ -2,12 +2,16 @@ package com.johancarinus.dogbox.ui.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import kotlinx.coroutines.selects.select
 
-/*
-* https://github.com/nickbutcher/plaid/blob/main/core/src/main/java/io/plaidapp/core/ui/recyclerview/InfiniteScrollListener.kt
-* */
+/**
+ * This code was taken from
+ * https://github.com/nickbutcher/plaid/blob/main/core/src/main/java/io/plaidapp/core/ui/recyclerview/InfiniteScrollListener.kt
+ **/
 abstract class InfiniteScrollListener (private val layoutManager: StaggeredGridLayoutManager) : RecyclerView.OnScrollListener() {
+
+    companion object {
+        private const val VISIBLE_THRESHOLD = 5
+    }
 
     private val loadMoreRunnable = Runnable { onLoadMore() }
 
@@ -29,8 +33,4 @@ abstract class InfiniteScrollListener (private val layoutManager: StaggeredGridL
     abstract fun onLoadMore()
 
     abstract fun isDataLoading(): Boolean
-
-    companion object {
-        private const val VISIBLE_THRESHOLD = 5
-    }
 }

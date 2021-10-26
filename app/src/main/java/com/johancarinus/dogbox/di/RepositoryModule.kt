@@ -23,7 +23,7 @@ class RepositoryModule {
     fun provideRetrofit(): DogApi {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://dog.ceo/api/")
+            .baseUrl(DogApi.BASE_URL)
             .build()
         return retrofit.create(DogApi::class.java)
     }

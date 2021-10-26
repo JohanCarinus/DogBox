@@ -31,6 +31,7 @@ class FullscreenImageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FullscreenImageFragmentBinding.inflate(inflater, container, false)
+
         setupViews()
         observeViewModel()
 
@@ -59,10 +60,8 @@ class FullscreenImageFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.getImage().observe(viewLifecycleOwner, { uriImage ->
-            binding.fullImage.load(uriImage.uri) {
-                placeholder(uriImage.placeholderRes)
-            }
+        viewModel.getImage().observe(viewLifecycleOwner, { uri ->
+            binding.fullImage.load(uri)
         })
     }
 
