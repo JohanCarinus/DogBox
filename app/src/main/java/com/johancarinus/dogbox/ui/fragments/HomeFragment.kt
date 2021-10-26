@@ -2,9 +2,7 @@ package com.johancarinus.dogbox.ui.fragments
 
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -13,6 +11,7 @@ import com.johancarinus.dogbox.ui.adapter.MasonryImageGalleryAdapter
 import com.johancarinus.dogbox.ui.adapter.MasonryImageGalleryOnClickListener
 import com.johancarinus.dogbox.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import johancarinus.dogbox.R
 import johancarinus.dogbox.databinding.HomeFragmentBinding
 
 // TODO: Should the NavHostFragment only be on a single class
@@ -46,6 +45,10 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.top_app_bar_home, menu)
+    }
+
     private fun setupViews() {
         adapter = MasonryImageGalleryAdapter(
             MasonryImageGalleryOnClickListener { uri: Uri -> viewModel.openImage(uri) }
@@ -55,8 +58,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel.getNavDirection().observe(viewLifecycleOwner, { navDirection ->
-            findNavController().navigate(navDirection)
+        viewModel.getNavDirection().observe(viewLifecycleOwner, { navDirectionEvent ->
+            navDirectionEvent.getDataIfNotConsumed()?.let {
+                findNavController().navigate(it)
+            }
         })
         viewModel.getDogUrls().observe(viewLifecycleOwner, { uriImages ->
             adapter.submitList(uriImages)

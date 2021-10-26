@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
 import com.johancarinus.dogbox.model.ErrorData
 import com.johancarinus.dogbox.model.ErrorSeverity
+import com.johancarinus.dogbox.model.Event
 import com.johancarinus.dogbox.model.UriImageData
 import com.johancarinus.dogbox.repository.DogsRepository
 import com.johancarinus.dogbox.ui.fragments.HomeFragmentDirections
@@ -27,8 +28,8 @@ class HomeViewModel @Inject constructor(
     private val _dogUrls: MutableLiveData<List<UriImageData>> by lazy {
         MutableLiveData<List<UriImageData>>()
     }
-    private val _navDirection: MutableLiveData<NavDirections> by lazy {
-        MutableLiveData<NavDirections>()
+    private val _navDirection: MutableLiveData<Event<NavDirections>> by lazy {
+        MutableLiveData<Event<NavDirections>>()
     }
 
     fun getDogUrls(): LiveData<List<UriImageData>> {
@@ -36,12 +37,13 @@ class HomeViewModel @Inject constructor(
         return _dogUrls
     }
 
-    fun getNavDirection(): LiveData<NavDirections> {
+    fun getNavDirection(): LiveData<Event<NavDirections>> {
         return _navDirection
     }
 
     fun openImage(uri: Uri) {
-        _navDirection.postValue(HomeFragmentDirections.actionHomeFragmentToFullscreenImageFragment(uri))
+        _navDirection.postValue(Event(HomeFragmentDirections.actionHomeFragmentToFullscreenImageFragment(uri)))
+        _navDirection
     }
 
     private fun reload() {
