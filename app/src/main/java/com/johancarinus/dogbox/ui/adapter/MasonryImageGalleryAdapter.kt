@@ -1,5 +1,6 @@
 package com.johancarinus.dogbox.ui.adapter
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,21 +8,20 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.johancarinus.dogbox.model.UriImageData
 import johancarinus.dogbox.R
 import johancarinus.dogbox.databinding.ImageViewHolderBinding
 
 class MasonryImageGalleryAdapter(
     private val onClickListener: MasonryImageGalleryOnClickListener
-) : ListAdapter<UriImageData, MasonryImageGalleryAdapter.ViewHolder>(UriImageDiffUtil) {
+) : ListAdapter<Uri, MasonryImageGalleryAdapter.ViewHolder>(UriImageDiffUtil) {
 
-    companion object UriImageDiffUtil : DiffUtil.ItemCallback<UriImageData>() {
-        override fun areItemsTheSame(oldItem: UriImageData, newItem: UriImageData): Boolean {
-            return oldItem.uri == newItem.uri
+    companion object UriImageDiffUtil : DiffUtil.ItemCallback<Uri>() {
+        override fun areItemsTheSame(oldItem: Uri, newItem: Uri): Boolean {
+            return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: UriImageData, newItem: UriImageData): Boolean {
-            return oldItem.isContentEqualTo(newItem)
+        override fun areContentsTheSame(oldItem: Uri, newItem: Uri): Boolean {
+            return oldItem.toString() == newItem.toString()
         }
     }
 
@@ -37,13 +37,11 @@ class MasonryImageGalleryAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
-            val uriImage = getItem(position)
+            val uri = getItem(position)
             binding.imageCard.setOnClickListener {
-                onClickListener.onClick(uriImage.uri)
+                onClickListener.onClick(uri)
             }
-            binding.image.load(uriImage.uri) {
-                placeholder(uriImage.placeholderRes)
-            }
+            binding.image.load(uri)
         }
     }
 }
