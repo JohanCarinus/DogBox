@@ -1,7 +1,7 @@
 package com.johancarinus.dogbox.repository
 
-import android.net.Uri
+import com.johancarinus.dogbox.model.UriImageData
 
 interface DogsRepository {
-    fun getDogUrls(breed: String = "ALL"): List<Uri>
+    suspend fun getDogUrls(breed: String = "ALL"): List<UriImageData>
 }

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.johancarinus.dogbox.ui.adapter.InfiniteScrollListener
 import com.johancarinus.dogbox.ui.adapter.MasonryImageGalleryAdapter
 import com.johancarinus.dogbox.ui.adapter.MasonryImageGalleryOnClickListener
 import com.johancarinus.dogbox.viewmodel.HomeViewModel
@@ -48,12 +49,31 @@ class HomeFragment : Fragment() {
         adapter = MasonryImageGalleryAdapter(
             MasonryImageGalleryOnClickListener { uri: Uri -> viewModel.openImage(uri) }
         )
-        binding.imageRecyclerView.layoutManager =
-            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.imageRecyclerView.layoutManager = layoutManager
         binding.imageRecyclerView.adapter = adapter
+        binding.imageRecyclerView.addOnScrollListener(object : InfiniteScrollListener(layoutManager) {
+            override fun onLoadMore() {
+                viewModel.fetchDogUrls()
+            }
+
+            override fun isDataLoading(): Boolean {
+                return viewModel.isLoading().value ?: false
+            }
+        })
     }
 
     private fun observeViewModel() {
+        viewModel.initView()
+        viewModel.showIsLoading().observe(viewLifecycleOwner, { showIsLoading ->
+            if (showIsLoading) {
+                binding.imageRecyclerView.visibility = View.GONE
+                binding.progressBarLayout.visibility = View.VISIBLE
+            } else {
+                binding.imageRecyclerView.visibility = View.VISIBLE
+                binding.progressBarLayout.visibility = View.GONE
+            }
+        })
         viewModel.getNavDirection().observe(viewLifecycleOwner, { navDirectionEvent ->
             navDirectionEvent.getDataIfNotConsumed()?.let {
                 findNavController().navigate(it)
