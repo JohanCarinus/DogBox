@@ -52,10 +52,6 @@ dependencies {
     def di_version = '2.38.1'
     def coil_version = '1.4.0'
     def retrofit_version = '2.9.0'
-    def paging_version = "3.0.1"
-
-    /* Jetpack paging */
-    implementation "androidx.paging:paging-runtime:$paging_version"
 
     /* Jetpack Navigation */
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
