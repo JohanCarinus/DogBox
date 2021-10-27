@@ -35,7 +35,7 @@ fun shareImage(context: Context, uri: Uri) {
     context.startActivity(Intent.createChooser(intent, context.getString(R.string.share_image)))
 }
 
-fun saveImage(activity: Activity, imageView: ImageView, name: String): Uri? {
+fun saveImage(activity: Activity, imageView: ImageView, name: String): Uri {
 
     verifyStoragePermissions(activity)
 
