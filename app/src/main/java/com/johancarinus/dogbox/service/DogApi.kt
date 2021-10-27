@@ -1,6 +1,6 @@
 package com.johancarinus.dogbox.service
 
-import com.johancarinus.dogbox.model.ImageListResponse
+import com.johancarinus.dogbox.model.service.ImageListResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 
