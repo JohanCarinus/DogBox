@@ -1,9 +1,14 @@
 package com.johancarinus.dogbox.viewmodel
 
 import android.net.Uri
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
-import com.johancarinus.dogbox.model.*
+import com.johancarinus.dogbox.model.core.ErrorData
+import com.johancarinus.dogbox.model.core.ErrorSeverity
+import com.johancarinus.dogbox.model.core.Event
 import com.johancarinus.dogbox.repository.DogsRepository
 import com.johancarinus.dogbox.ui.fragments.HomeFragmentDirections
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -66,6 +71,12 @@ class HomeViewModel @Inject constructor(
     }
 
     fun openImage(uri: Uri) {
-        _navDirection.postValue(Event(HomeFragmentDirections.actionHomeFragmentToFullscreenImageFragment(uri)))
+        _navDirection.postValue(
+            Event(
+                HomeFragmentDirections.actionHomeFragmentToFullscreenImageFragment(
+                    uri
+                )
+            )
+        )
     }
 }

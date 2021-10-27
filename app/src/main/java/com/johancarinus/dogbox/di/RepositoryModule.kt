@@ -2,7 +2,7 @@ package com.johancarinus.dogbox.di
 
 import com.johancarinus.dogbox.repository.DogsRepository
 import com.johancarinus.dogbox.repository.DogsRepositoryImpl
-import com.johancarinus.dogbox.repository.api.DogApi
+import com.johancarinus.dogbox.service.DogApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

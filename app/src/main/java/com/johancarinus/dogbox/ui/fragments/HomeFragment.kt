@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.johancarinus.dogbox.ui.adapter.InfiniteScrollListener
 import com.johancarinus.dogbox.ui.adapter.MasonryImageGalleryAdapter
-import com.johancarinus.dogbox.ui.adapter.MasonryImageGalleryOnClickListener
+import com.johancarinus.dogbox.ui.listener.InfiniteScrollListener
+import com.johancarinus.dogbox.ui.listener.MasonryImageGalleryOnClickListener
 import com.johancarinus.dogbox.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import johancarinus.dogbox.R
@@ -50,13 +50,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupViews() {
-        val layoutManager = StaggeredGridLayoutManager(NUM_COLUMNS, StaggeredGridLayoutManager.VERTICAL)
+        val layoutManager =
+            StaggeredGridLayoutManager(NUM_COLUMNS, StaggeredGridLayoutManager.VERTICAL)
         adapter = MasonryImageGalleryAdapter(
             MasonryImageGalleryOnClickListener { uri: Uri -> viewModel.openImage(uri) }
         )
         binding.imageRecyclerView.layoutManager = layoutManager
         binding.imageRecyclerView.adapter = adapter
-        binding.imageRecyclerView.addOnScrollListener(object : InfiniteScrollListener(layoutManager) {
+        binding.imageRecyclerView.addOnScrollListener(object :
+            InfiniteScrollListener(layoutManager) {
             override fun onLoadMore() {
                 viewModel.fetchDogUrls()
             }

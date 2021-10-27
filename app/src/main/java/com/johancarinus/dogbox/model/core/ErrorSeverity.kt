@@ -1,4 +1,4 @@
-package com.johancarinus.dogbox.model
+package com.johancarinus.dogbox.model.core
 
 enum class ErrorSeverity {
     NO_ERROR,

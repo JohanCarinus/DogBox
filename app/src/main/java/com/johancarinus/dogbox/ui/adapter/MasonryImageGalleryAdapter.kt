@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.johancarinus.dogbox.ui.listener.MasonryImageGalleryOnClickListener
 import johancarinus.dogbox.R
 import johancarinus.dogbox.databinding.ImageViewHolderBinding
 

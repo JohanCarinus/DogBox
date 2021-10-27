@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DogBox">
         <activity
-            android:name="com.johancarinus.dogbox.ui.MainXmlActivity"
+            android:name="com.johancarinus.dogbox.ui.BaseActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.johancarinus.dogbox.ui.adapter
+package com.johancarinus.dogbox.ui.listener
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
  * This code was taken from
  * https://github.com/nickbutcher/plaid/blob/main/core/src/main/java/io/plaidapp/core/ui/recyclerview/InfiniteScrollListener.kt
  **/
-abstract class InfiniteScrollListener (private val layoutManager: StaggeredGridLayoutManager) : RecyclerView.OnScrollListener() {
+abstract class InfiniteScrollListener(private val layoutManager: StaggeredGridLayoutManager) :
+    RecyclerView.OnScrollListener() {
 
     companion object {
         private const val VISIBLE_THRESHOLD = 5

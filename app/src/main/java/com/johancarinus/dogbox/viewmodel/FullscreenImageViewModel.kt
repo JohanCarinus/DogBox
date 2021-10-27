@@ -18,7 +18,7 @@ class FullscreenImageViewModel @Inject constructor() : ViewModel() {
         _image.postValue(uri)
     }
 
-    fun getImage() : LiveData<Uri> {
+    fun getImage(): LiveData<Uri> {
         return _image
     }
 }
