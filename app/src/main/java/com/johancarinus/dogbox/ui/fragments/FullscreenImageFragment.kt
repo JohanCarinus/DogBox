@@ -81,8 +81,8 @@ class FullscreenImageFragment : Fragment() {
 
     private fun shareImage(activity: Activity) {
         val uri =
-            activity.saveImage(binding.fullImage, System.currentTimeMillis().toString())
-        uri?.let { imageUri -> activity.shareImage(imageUri) } ?: Toast.makeText(
+            saveImage(activity, binding.fullImage, System.currentTimeMillis().toString())
+        uri?.let { imageUri -> shareImage(activity, imageUri) } ?: Toast.makeText(
             activity,
             R.string.error_something_went_wrong,
             Toast.LENGTH_LONG
@@ -90,7 +90,8 @@ class FullscreenImageFragment : Fragment() {
     }
 
     private fun saveImage(activity: Activity) {
-        val uri = activity.saveImage(
+        val uri = saveImage(
+            activity,
             binding.fullImage,
             System.currentTimeMillis().toString()
         )
