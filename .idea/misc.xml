@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2890625" />
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/layout/fragment_fullscreen_image.xml" value="0.266304347826087" />
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/layout/fullscreen_image_fragment.xml" value="0.20520833333333333" />
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/layout/home_fragment.xml" value="0.26358695652173914" />
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/layout/image_view_holder.xml" value="0.26358695652173914" />
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/layout/main_xml_activity.xml" value="0.25" />
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/menu/top_app_bar.xml" value="0.20520833333333333" />
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/menu/top_app_bar_full_screen_image.xml" value="0.20520833333333333" />
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/menu/top_app_bar_fullscreen_image.xml" value="0.20520833333333333" />
+        <entry key="..\:/Design/Programming/Job_Application/DogBox/app/src/main/res/menu/top_app_bar_home.xml" value="0.20520833333333333" />
         <entry key="..\:/Design/Programming/Job_Application/DogBox2/app/src/main/res/layout/home_activity.xml" value="0.20520833333333333" />
         <entry key="..\:/Design/Programming/Job_Application/DogBox2/app/src/main/res/layout/home_fragment.xml" value="0.19114583333333332" />
       </map>
