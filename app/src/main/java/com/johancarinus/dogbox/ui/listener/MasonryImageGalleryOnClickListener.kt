@@ -1,4 +1,4 @@
-package com.johancarinus.dogbox.ui.adapter
+package com.johancarinus.dogbox.ui.listener
 
 import android.net.Uri
 

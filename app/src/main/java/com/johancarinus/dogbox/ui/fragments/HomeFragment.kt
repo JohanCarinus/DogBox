@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.johancarinus.dogbox.ui.adapter.InfiniteScrollListener
+import com.johancarinus.dogbox.ui.listener.InfiniteScrollListener
 import com.johancarinus.dogbox.ui.adapter.MasonryImageGalleryAdapter
-import com.johancarinus.dogbox.ui.adapter.MasonryImageGalleryOnClickListener
+import com.johancarinus.dogbox.ui.listener.MasonryImageGalleryOnClickListener
 import com.johancarinus.dogbox.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import johancarinus.dogbox.R

@@ -1,4 +1,4 @@
-package com.johancarinus.dogbox.ui.adapter
+package com.johancarinus.dogbox.ui.listener
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager

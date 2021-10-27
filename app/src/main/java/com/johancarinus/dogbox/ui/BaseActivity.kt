@@ -6,7 +6,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import johancarinus.dogbox.R
 
 @AndroidEntryPoint
-class MainXmlActivity : AppCompatActivity() {
+class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
