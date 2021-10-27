@@ -1,7 +1,7 @@
 package com.johancarinus.dogbox.repository
 
 import android.net.Uri
-import com.johancarinus.dogbox.repository.api.DogApi
+import com.johancarinus.dogbox.service.DogApi
 
 class DogsRepositoryImpl constructor(val dogApi: DogApi) : DogsRepository {
 

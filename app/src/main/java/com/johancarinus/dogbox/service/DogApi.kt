@@ -1,4 +1,4 @@
-package com.johancarinus.dogbox.repository.api
+package com.johancarinus.dogbox.service
 
 import com.johancarinus.dogbox.model.ImageListResponse
 import retrofit2.http.GET
